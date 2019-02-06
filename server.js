@@ -15,12 +15,11 @@ app.get('/api/customers', (req, res) => {
 });
 
 app.post('/enteruser', jsonParser, (req, res) => {
-
   customers = [...customers, req.body];
   res.sendStatus(200);
   console.log(customers);
 });
 
-const port = 5000;
+const port = 3001;
 
 app.listen(port, () => `Server running on port ${port}`);
