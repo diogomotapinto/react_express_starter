@@ -1,15 +1,24 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
+const jsonParser = bodyParser.json();
+
+let customers = [
+  { id: 1, firstName: 'John', lastName: 'Doe' },
+  { id: 2, firstName: 'Brad', lastName: 'Traversy' },
+  { id: 3, firstName: 'Mary', lastName: 'Swanson' },
+];
 
 app.get('/api/customers', (req, res) => {
-  const customers = [
-    {id: 1, firstName: 'John', lastName: 'Doe'},
-    {id: 2, firstName: 'Brad', lastName: 'Traversy'},
-    {id: 3, firstName: 'Mary', lastName: 'Swanson'},
-  ];
-
   res.json(customers);
+});
+
+app.post('/enteruser', jsonParser, (req, res) => {
+
+  customers = [...customers, req.body];
+  res.sendStatus(200);
+  console.log(customers);
 });
 
 const port = 5000;
