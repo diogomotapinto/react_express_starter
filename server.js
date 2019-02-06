@@ -14,7 +14,7 @@ app.get('/api/customers', (req, res) => {
   res.json(customers);
 });
 
-app.post('/enteruser', jsonParser, (req, res) => {
+app.post('/api/enteruser', jsonParser, (req, res) => {
   customers = [...customers, req.body];
   res.sendStatus(200);
   console.log(customers);

@@ -5,7 +5,7 @@ import axios from 'axios';
 const Button = () => {
 
     const changeData = () => {
-        axios.post('/enteruser', {
+        axios.post('/api/enteruser', {
             id: 5,
             firstName: 'Diogo',
             lastName: 'Swanson'
